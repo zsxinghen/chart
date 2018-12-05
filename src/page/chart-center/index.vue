@@ -38,11 +38,11 @@
   </div>
 </template>
 <script>
-  import chart from "../components/charts/index.vue";
-  import configs from "../components/chartConfigs/index.vue";
+  import chart from "../../components/chart-center/charts/index.vue";
+  import configs from "../../components/chart-center/chartConfigs/index.vue";
   import {
     types
-  } from "../data/configs/chartCenter_imgConfig.js";
+  } from "../../data/configs/chartCenter_imgConfig.js";
   export default {
     name: "chartConfigPage",
     data() {
@@ -108,8 +108,8 @@
 
 </script>
 <style lang="less">
-  @import url("../assets/style/chartCenter.less");
-  @import url("../assets/icon/iconfont/iconfont.css");
+  @import url("../../assets/style/chartCenter.less");
+  @import url("../../assets/icon/iconfont/iconfont.css");
 
   #div2,
   .div1 ui li {

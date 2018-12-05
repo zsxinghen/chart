@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import chartCenter from "./page/chartCenter.vue";
+import chartCenter from "./page/chart-center/index.vue";
 
 export default {
   name: "App",
@@ -16,9 +16,9 @@ export default {
 </script>
 
 <style>
-@import url('./assets/style/reset.less');
-#app{
-  height:100vh;
+@import url("./assets/style/reset.less");
+#app {
+  height: 100vh;
   padding: 10px 0;
   box-sizing: border-box;
   min-width: 1200px;
