@@ -38,86 +38,88 @@
   </div>
 </template>
 <script>
-  import chart from "../../components/chart-center/charts/index.vue";
-  import configs from "../../components/chart-center/chartConfigs/index.vue";
-  import {
-    types
-  } from "../../data/configs/chartCenter_imgConfig.js";
-  export default {
-    name: "chartConfigPage",
-    data() {
-      return {
-        chartTypes: [],
-        chartArr: [],
-        chartType: "table",
-        config: {
-          type: "table",
-          data: null,
-          title: {},
-          legend: {},
-          series: {}
-        }
-      };
-    },
-    components: {
-      chart,
-      configs
-    },
-    created() {
-      this.chartTypes = types;
-    },
-    mounted() {},
-    methods: {
-      /**
-       *   获取报表种类
-       */
-      setChartType(item) {
-        this.chartArr = item.children;
-        this.chartType = item.type;
-        this.$set(this.config, "type", item.type);
-        //处理渲染延迟
-        this.$nextTick(_ => {
-          this.$refs.config.setCollapseHeight();
-        });
-      },
-      allowDrop(ev) {
-        // ev.preventDefault();
-      },
-
-      drag(ev) {
-        // ev.dataTransfer.setData("Text", ev.target.id);
-      },
-      drop(ev) {
-        // ev.preventDefault();
-        // var data = ev.dataTransfer.getData("Text");
-        // ev.target.appendChild(document.getElementById(data));
-      }
-    },
-    /**
-     *   监听并刷新图表
-     */
-    watch: {
+import chart from "../../components/chart-center/charts/index.vue";
+import configs from "../../components/chart-center/chartConfigs/index.vue";
+import { types } from "../../data/configs/chartCenter_imgConfig.js";
+export default {
+  name: "chartConfigPage",
+  data() {
+    return {
+      chartTypes: [],
+      chartArr: [],
+      chartType: "table",
       config: {
-        deep: true,
-        handler: () => {
-          console.log(11);
+        data: null,
+        chart: "table",
+        type: "table",
+        title: {},
+        legend: {},
+        series: {},
+        dataZoom: {},
+        visualMap: {
+          color: [""],
+          type: "continuous",
+          pieces: [{}]
         }
+      }
+    };
+  },
+  components: {
+    chart,
+    configs
+  },
+  created() {
+    this.chartArr = types;
+  },
+  mounted() {},
+  methods: {
+    /**
+     *   获取报表种类
+     */
+    // setChartType(item) {
+    //   this.chartArr = item.children;
+    //   this.chartType = item.type;
+    //   this.$set(this.config, "type", item.type);
+    //   //处理渲染延迟
+    //   this.$nextTick(_ => {
+    //     this.$refs.config.setCollapseHeight();
+    //   });
+    // },
+    allowDrop(ev) {
+      // ev.preventDefault();
+    },
+    drag(ev) {
+      // ev.dataTransfer.setData("Text", ev.target.id);
+    },
+    drop(ev) {
+      // ev.preventDefault();
+      // var data = ev.dataTransfer.getData("Text");
+      // ev.target.appendChild(document.getElementById(data));
+    }
+  },
+  /**
+   *   监听并刷新图表
+   */
+  watch: {
+    config: {
+      deep: true,
+      handler: () => {
+        console.log(11);
       }
     }
-  };
-
+  }
+};
 </script>
 <style lang="less">
-  @import url("../../assets/style/chartCenter.less");
-  @import url("../../assets/icon/iconfont/iconfont.css");
+@import url("../../assets/style/chartCenter.less");
+@import url("../../assets/icon/iconfont/iconfont.css");
 
-  #div2,
-  .div1 ui li {
-    width: 198px;
-    height: 66px;
-    padding: 10px;
-    border: 1px solid #aaaaaa;
-    user-select: none
-  }
-
+#div2,
+.div1 ui li {
+  width: 198px;
+  height: 66px;
+  padding: 10px;
+  border: 1px solid #aaaaaa;
+  user-select: none;
+}
 </style>

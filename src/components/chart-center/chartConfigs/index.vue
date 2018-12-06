@@ -45,12 +45,11 @@
 import BasicConfig from "./configs/BasicConfig.vue";
 import StyleConfig from "./configs/StyleConfig.vue";
 import PluginConfig from "./configs/PluginConfig.vue";
-import Models from "./configs/Models.vue";
 export default {
   name: "configCommon",
   data() {
     return {
-      chartType: "pie",
+      chartType: "table",
       activeName: "1"
     };
   },
@@ -58,7 +57,6 @@ export default {
     BasicConfig,
     StyleConfig,
     PluginConfig,
-    Models
   },
   props: {
     config: {
@@ -94,6 +92,10 @@ export default {
       });
     },
     setType(item) {
+      this.$set(this.config,'type',item.type);
+      this.$set(this.config,'chart',item.chart);
+      this.$set(this.config,'isAxis',item.isAxis);
+      this.$set(this.config,'isVisualMap',item.isVisualMap);
       this.chartType = item.chart;
     }
   }
