@@ -15,7 +15,7 @@ export default {
           },
           tooltip: {
             trigger: 'item',
-            formatter: "{a} <br/>{b} : {c} ({d}%)"
+            formatter: "{a} <br/>{b} : {c}%"
           },
           legend: {
             show: config.legend.isShow,

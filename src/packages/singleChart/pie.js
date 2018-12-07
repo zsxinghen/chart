@@ -43,7 +43,7 @@ export default {
       color: config.color,
       backgroundColor: config.backgroundColor,
       series: {
-        name: config.series.name,
+        name: config.series.name||" ",
         type: 'pie',
         radius: this.setRadius(config),
         center: config.series.center,
