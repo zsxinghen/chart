@@ -26,49 +26,31 @@ export default {
   },
   mounted() {
     this.config.data = {
-      rowName: [
+      nameArr: ["直接访问", "邮件营销", "联盟广告", "视频广告", "搜索引擎"],
+      valArr: [
         {
-          label: "six",
-          value: "six"
+          value: 335,
+          name: "直接访问"
         },
         {
-          label: "月份",
-          value: "月份"
+          value: 310,
+          name: "邮件营销"
         },
         {
-          label: "值",
-          value: "值"
-        }
-      ],
-      rowValue: [
-        {
-          six: "男",
-          月份: "1",
-          值: "3.2"
+          value: 234,
+          name: "联盟广告"
         },
         {
-          six: "男",
-          月份: "2",
-          值: "3.2"
+          value: 135,
+          name: "视频广告"
         },
         {
-          six: "女",
-          月份: "2",
-          值: "3.2"
-        },
-        {
-          six: "女",
-          月份: "3",
-          值: "3.2"
-        },
-        {
-          six: "女",
-          月份: "4",
-          值: "3.2"
+          value: 1548,
+          name: "搜索引擎"
         }
       ]
     };
-  }
+  },
 };
 </script>
 <style lang="less">

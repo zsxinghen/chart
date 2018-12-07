@@ -2,11 +2,11 @@
   <div class="config-common">
     <div class="config box">
       <div class="config-title">图表标题</div>
-      <el-input v-model="config.title.text" placeholder="未命名图表名称"></el-input>
+      <el-input v-model="config.settings.title.text" placeholder="未命名图表名称"></el-input>
     </div>
      <div class="config box">
       <div class="config-title">图表备注</div>
-      <el-input v-model="config.title.remark" placeholder="请输入图表备注"></el-input>
+      <el-input v-model="config.settings.remark" placeholder="请输入图表备注"></el-input>
     </div>
     <div class="config chart" v-if="chartArr.length">
       <div class="config-title">图表类型</div>
@@ -22,13 +22,13 @@
     <div class="config collapse">
       <el-collapse v-model="activeName" accordion>
         <el-collapse-item title="基础样式" name="1">
-          <basic-config :config="config"></basic-config>
+          <basic-config :config="config.settings"></basic-config>
         </el-collapse-item>
         <el-collapse-item title="样式配置" name="2">
-          <style-config :config="config"></style-config>
+          <style-config :config="config.settings"></style-config>
         </el-collapse-item>
         <el-collapse-item title="组件配置" name="3">
-           <plugin-config :config="config"></plugin-config>
+           <plugin-config :config="config.settings"></plugin-config>
         </el-collapse-item>
       </el-collapse>
     </div>
@@ -45,6 +45,7 @@
 import BasicConfig from "./configs/BasicConfig.vue";
 import StyleConfig from "./configs/StyleConfig.vue";
 import PluginConfig from "./configs/PluginConfig.vue";
+import { default as defaultConfig } from "../../../data/index";
 export default {
   name: "configCommon",
   data() {
@@ -56,7 +57,7 @@ export default {
   components: {
     BasicConfig,
     StyleConfig,
-    PluginConfig,
+    PluginConfig
   },
   props: {
     config: {
@@ -80,8 +81,7 @@ export default {
       this.setCollapseHeight();
     };
   },
-  updated(){
-  },
+  updated() {},
   methods: {
     setCollapseHeight() {
       let height = document.getElementsByClassName("el-collapse")[0]
@@ -92,10 +92,15 @@ export default {
       });
     },
     setType(item) {
-      this.$set(this.config,'type',item.type);
-      this.$set(this.config,'chart',item.chart);
-      this.$set(this.config,'isAxis',item.isAxis);
-      this.$set(this.config,'isVisualMap',item.isVisualMap);
+      this.$set(
+        this.config,
+        "settings",
+        Object.assign({}, defaultConfig[`config_${item.chart}`])
+      );
+      this.$set(this.config, "type", item.type);
+      this.$set(this.config, "chart", item.chart);
+      this.$set(this.config, "isAxis", item.isAxis);
+      this.$set(this.config, "isVisualMap", item.isVisualMap);
       this.chartType = item.chart;
     }
   }

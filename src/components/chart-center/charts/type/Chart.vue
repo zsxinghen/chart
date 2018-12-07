@@ -1,11 +1,16 @@
 <template>
-      <div id='id'></div>
+      <div :id='id' class="my-bi-chart"></div>
 </template>
 <script>
 import echarts from "echarts";
+import { default as $set } from "../../../../packages/index";
+import { setTimeout } from "timers";
+
 export default {
   data() {
-    return {};
+    return {
+      chart: null
+    };
   },
   props: {
     id: {
@@ -29,19 +34,18 @@ export default {
     });
   },
   methods: {
-    //获取数据
-    getData(param) {
-      this.init();
-    },
-    init(data) {
-      let chart = echarts.init(document.getElementById(id));
-      chart.off("click"); // 处理点击事件多次触发
-      let option = this.setOption();
-      chart.clear(); //清空当前实例，会移除实例中所有的组件和图表
-      chart.hideLoading(); //隐藏动画加载效果。
-      chart.setOption(option);
-      this.resize(chart);
-      chart.on("click", param => {
+    init() {
+      this.chart = echarts.init(document.getElementById(this.id));
+      this.chart.off("click"); // 处理点击事件多次触发
+      let option = $set[`${this.config.chart}`].setOption(
+        this.config.settings,
+        this.config.data
+      );
+      this.chart.clear(); //清空当前实例，会移除实例中所有的组件和图表
+      this.chart.hideLoading(); //隐藏动画加载效果。
+      this.chart.setOption(option);
+      this.resize(this.chart);
+      this.chart.on("click", param => {
         this.$root.eventHub.$emit("myDD", param.name);
       });
     },
@@ -62,11 +66,39 @@ export default {
           chart.resize();
         });
     }
+  },
+  watch: {
+    "config.settings": {
+      //根据数据变动，重新渲染页面图表
+      deep: true,
+      handler() {
+        if (this.id == "my") {
+          //变更图表数据
+          let option = $set[`${this.config.chart}`].setOption(
+            this.config.settings,
+            this.config.data
+          );
+          this.chart.setOption(option);
+        } else {
+          if (this.config.settings.updateWay == "refresh") {
+            //重新渲染图表
+            this.init();
+          } else {
+            //变更图表数据
+            let option = $set[`${this.config.chart}`].setOption(
+              this.config.settings,
+              this.config.data
+            );
+            this.chart.setOption(option);
+          }
+        }
+      }
+    }
   }
 };
 </script>
 <style lang="less">
-.chart {
+.my-bi-chart {
   position: absolute !important;
   top: 0;
   bottom: 0;

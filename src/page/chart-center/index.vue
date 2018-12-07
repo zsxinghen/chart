@@ -14,7 +14,7 @@
       <div class="content-center">
         <div class="content header"></div>
         <div class="content chart">
-          <!-- <chart id="my" :config="config"></chart> -->
+          <chart id="my" :config="config"></chart>
         </div>
         <div class="content footer"></div>
       </div>
@@ -52,15 +52,18 @@ export default {
         data: null,
         chart: "table",
         type: "table",
-        title: {},
-        legend: {},
-        series: {},
-        dataZoom: {},
-        visualMap: {
-          color: [""],
-          type: "continuous",
-          pieces: [{}]
+        settings: {
+          title:{}
         }
+        // title: {},
+        // legend: {},
+        // series: {},
+        // dataZoom: {},
+        // visualMap: {
+        //   color: [""],
+        //   type: "continuous",
+        //   pieces: [{}]
+        // }
       }
     };
   },
@@ -96,18 +99,10 @@ export default {
       // var data = ev.dataTransfer.getData("Text");
       // ev.target.appendChild(document.getElementById(data));
     }
-  },
+  }
   /**
    *   监听并刷新图表
    */
-  watch: {
-    config: {
-      deep: true,
-      handler: () => {
-        console.log(11);
-      }
-    }
-  }
 };
 </script>
 <style lang="less">
