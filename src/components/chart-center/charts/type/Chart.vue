@@ -2,10 +2,12 @@
       <div :id='id' class="my-bi-chart"></div>
 </template>
 <script>
-import echarts from "echarts";
+// import echarts from "echarts";
 import { default as $set } from "../../../../packages/index";
 import { setTimeout } from "timers";
-
+var echarts = require("echarts");
+require("echarts-wordcloud");
+require("echarts-liquidfill");
 export default {
   data() {
     return {
@@ -78,6 +80,7 @@ export default {
             this.config.settings,
             this.config.data
           );
+          this.chart.clear(); //清空当前实例，会移除实例中所有的组件和图表
           this.chart.setOption(option);
         } else {
           if (this.config.settings.updateWay == "refresh") {

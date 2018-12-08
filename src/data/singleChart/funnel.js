@@ -25,13 +25,14 @@ export const config_funnel = {
   chart: "funnel", //图表类型
   remark: null, //备注
   click: false, //点击事件
+  updateWay: "refresh", //刷新方式----重新渲染
   title: {
     isShow: true,
     text: null,
     color: "#000000",
     fontFamliy: "Microsoft YaHei",
     fontSize: 12,
-    locationx: "center",
+    locationX: "center",
     locationY: "top"
   },
   grid: {
@@ -44,16 +45,18 @@ export const config_funnel = {
     fontFamliy: "Microsoft YaHei",
     fontSize: 12,
     orient: "horizontal",
-    locationx: "left",
+    locationX: "left",
     locationY: "bottom"
   },
   // 颜色
   color: ['#c23531', '#2f4554', '#61a0a8', '#d48265', '#91c7ae', '#749f83', '#ca8622', '#bda29a', '#6e7074', '#546570', '#c4ccd3'],
   backgroundColor: "#ffffff",
   series: {
-    gap: 0,
-    minSize: '0%',
-    maxSize: '100%',
+    gap: 10,
+    minSize: 0,
+    maxSize: 80,
     funnelAlign: 'center',
+    name:"",
+    position:""
   }
 };

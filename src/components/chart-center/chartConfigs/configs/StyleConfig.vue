@@ -18,7 +18,6 @@ import styleBar from "./styles/config-bar";
 import styleLine from "./styles/config-line";
 import styleScatter from "./styles/config-scatter";
 import styleWordcloud from "./styles/config-wordcloud";
-import styleLiquidfill from "./styles/config-liquidfill";
 import styleMap from "./styles/config-map";
 export default {
   data() {
@@ -46,7 +45,6 @@ export default {
     styleLine,
     styleScatter,
     styleWordcloud,
-    styleLiquidfill,
     styleMap
   }
 };

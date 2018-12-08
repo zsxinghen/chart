@@ -16,9 +16,8 @@
         <el-button size="mini" type="primary" @click="popoverVisiable('titleLocation')">保存</el-button>
       </div>
     </el-popover>
-
     <!-- 图表 -->
-    <div v-if="config.type=='chart'">
+    <div v-if="config.type=='chart'&&config.chart!='wordcloud'&&config.chart!='gauge'">
       <div class="config-title">图例样式</div>
       <el-checkbox v-model="config.legend.isShow" style="margin-right:10px">显示图例</el-checkbox>
       <el-tooltip class="item" effect="dark" content="位置" placement="top-start">
@@ -41,13 +40,25 @@
         <color-theme :config="config" :visible="visible"></color-theme>
       </div>
     </div>
+    <div v-if="config.chart=='gauge'">
+      <div class="config-title">背景设置</div>
+      <div class="config-conent">
+        背景色: <el-color-picker v-model="config.backgroundColor" size="small" show-alpha></el-color-picker>
+      </div>
+    </div>
+    <div v-if="config.chart=='wordcloud'">
+      <div class="config-title">背景设置</div>
+      <div class="config-conent">
+        主题配置:<el-button type="text" icon="el-icon-setting" style="padding: 0;margin-left:10px" @click="visible.colorPick=true"></el-button>
+        <color-theme :config="config" :visible="visible"></color-theme>
+      </div>
+    </div>
     <!-- 地图 -->
     <div v-else-if="config.type=='map'"></div>
     <!-- 卡片 -->
     <div v-else-if="config.type=='card'"></div>
     <!-- 表格 -->
     <div v-else-if="config.type=='table'"></div>
-
   </div>
 </template>
 <script>

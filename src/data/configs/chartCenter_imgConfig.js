@@ -20,72 +20,72 @@ export const types = [{
     type: "chart",
     chart: 'pie', // 饼图
     name: '饼图',
-    isAxis:false, 
-    isVisualMap:false,
+    isAxis: false,
+    isVisualMap: false,
     icon: "icon-zuixinICON--",
   },
   {
     type: "chart",
     chart: 'sunburst', // 旭日图
     name: '旭日图',
-    isAxis:false,
-    isVisualMap:false,
+    isAxis: false,
+    isVisualMap: false,
     icon: "icon-xuritu",
   },
   {
     type: "chart",
     chart: 'gauge', // 仪表盘
     name: '仪表盘',
-    isAxis:false,
-    isVisualMap:false,
+    isAxis: false,
+    isVisualMap: false,
     icon: "icon-yibiaopan",
   },
   {
     type: "chart",
     chart: 'funnel', // 漏斗图
     name: '漏斗图',
-    isAxis:false,
-    isVisualMap:false,
+    isAxis: false,
+    isVisualMap: false,
     icon: "icon-loudoutu",
   },
   {
     type: "chart",
     chart: 'radar', // 雷达图
     name: '雷达图',
-    isAxis:false,
-    isVisualMap:false,
+    isAxis: false,
+    isVisualMap: false,
     icon: "icon-leidatu",
   },
   {
     type: "chart",
     chart: 'graph', // 关系图
     name: '关系图',
-    isAxis:false,
-    isVisualMap:true,
+    isAxis: false,
+    isVisualMap: true,
     icon: "icon-guanxitu",
   },
   {
     type: "chart",
     chart: 'bar', // 柱状图
     name: '柱状图',
-    isAxis:true,
-    isVisualMap:true,
+    isAxis: true,
+    isVisualMap: true,
     icon: "icon-tubiaozhuzhuangtu",
   },
   {
     type: "chart",
     chart: 'line', // 折线图
     name: '折线图',
-    isAxis:true,
-    isVisualMap:true,
+    isAxis: true,
+    isVisualMap: true,
     icon: "icon-zhexiantu",
   },
   {
     type: "chart",
     chart: 'scatter', // 散点图
     name: '散点图',
-    isAxis:true,
-    isVisualMap:true,
+    isAxis: true,
+    isVisualMap: true,
     icon: "icon-sandiantu",
   },
   {
@@ -94,12 +94,12 @@ export const types = [{
     name: '字符云',
     icon: "icon-zujian-zifuyun",
   },
-  {
-    type: "chart",
-    chart: 'liquidfill', // 水球图
-    name: '水球图',
-    icon: "icon-fsux_tubiao_shuiqiutu",
-  },
+  // {
+  //   type: "chart",
+  //   chart: 'liquidfill', // 水球图
+  //   name: '水球图',
+  //   icon: "icon-fsux_tubiao_shuiqiutu",
+  // },
   {
     type: "map",
     chart: 'map', // 地图
