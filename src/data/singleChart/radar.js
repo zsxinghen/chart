@@ -41,17 +41,17 @@ export const config_radar = {
     splitNumber: 5,
     indicator: [],
     shape: 'circle',
-    splitArea: {
-      color: new echarts.graphic.RadialGradient(0.5, 0.5, 1, [{
-          color: '#B8D3E4',
-          offset: 0
-        },
-        {
-          color: '#72ACD1',
-          offset: 1
-        }
-      ])
-    },
+    // splitArea: {
+    //   color: new echarts.graphic.RadialGradient(0.5, 0.5, 1, [{
+    //       color: '#B8D3E4',
+    //       offset: 0
+    //     },
+    //     {
+    //       color: '#72ACD1',
+    //       offset: 1
+    //     }
+    //   ])
+    // },
     lineStyle: {
       type: 'dashed'
     },
