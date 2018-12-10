@@ -30,14 +30,25 @@ export default {
       xArr: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
       valArr: [
         [
-          [1, 1, "女"],
-          [2, 2, "女"],
-          [3, 3, "女"],
-          [4, 4, "女"],
-          [6, 5, "女"],
-          [5, 6, "女"]
+          { x: 1, value: 1, name: "女" },
+          { x: 2, value: 2, name: "女" },
+          { x: 3, value: 3, name: "女" },
+          { x: 4, value: 4, name: "女" },
+          { x: 5, value: 5, name: "女" },
+          { x: 6, value: 6, name: "女" },
+          { x: 1, value: 1, name: "女" },
+          { x: 1, value: 1, name: "女" }
         ],
-        [[2, 1, "男"], [3, 8, "男"], [4, 6, "男"]]
+        [
+          { x: 1, value: 1, name: "男" },
+          { x: 2, value: 2, name: "男" },
+          { x: 3, value: 3, name: "男" },
+          { x: 4, value: 4, name: "男" },
+          { x: 5, value: 5, name: "男" },
+          { x: 6, value: 6, name: "男" },
+          { x: 1, value: 1, name: "男" },
+          { x: 1, value: 2, name: "男" }
+        ]
       ]
     };
   }
