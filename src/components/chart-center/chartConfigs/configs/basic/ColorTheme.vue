@@ -21,9 +21,15 @@
             <div class="curr-detail-item-label">颜色组 :</div>
             <div>
               <ul class="color-list clearfix">
-                <li v-for="(item,i) in defaultTheme.color" :key="i">
+                <el-color-picker v-for="(item,index) in defaultTheme.color" :key="index" show-alpha style="margin:0 5px"
+                  v-model="defaultTheme.color[index]" show-alpha size="mini"></el-color-picker>
+                <el-button type="text" icon="el-icon-plus" style="margin:0 10px" :disabled="defaultTheme.color&&defaultTheme.color.length>=12"
+                  @click="defaultTheme.color.push('')"></el-button>
+                <el-button type="text" icon="el-icon-delete" style="margin:0 10px" :disabled="defaultTheme.color&&defaultTheme.color.length<=1"
+                  @click="defaultTheme.color.pop();"></el-button>
+                <!-- <li v-for="(item,i) in defaultTheme.color" :key="i">
                   <el-color-picker v-model="defaultTheme.color[i]" style="top:4px" size="small" show-alpha></el-color-picker>
-                </li>
+                </li> -->
               </ul>
             </div>
           </div>
@@ -59,7 +65,7 @@ import ColorPickMain from "./ColorPickMain";
 export default {
   data() {
     return {
-      selectIndex: 0,
+      selectIndex: -1,
       defaultTheme: {
         color: null,
         background: null
@@ -123,15 +129,16 @@ export default {
   components: {
     ColorPickMain
   },
-  mounted() {
-    this.$set(this.defaultTheme, "background", this.config.backgroundColor);
-    this.$set(this.defaultTheme, "color", this.config.color);
-  },
+  mounted() {},
   methods: {
     setTheme(item, i) {
       this.selectIndex = i;
       this.$set(this.defaultTheme, "background", item.background);
-      this.$set(this.defaultTheme, "color", item.color);
+      this.$set(
+        this.defaultTheme,
+        "color",
+        JSON.parse(JSON.stringify(item.color))
+      );
     },
     resetTheme() {
       this.visible.colorPick = false;
@@ -139,7 +146,11 @@ export default {
     // 重新绘制图表
     updateChart() {
       this.$set(this.config, "backgroundColor", this.defaultTheme.background);
-      this.$set(this.config, "color", this.defaultTheme.color);
+      this.$set(
+        this.config,
+        "color",
+        JSON.parse(JSON.stringify(this.defaultTheme.color))
+      );
       this.visible.colorPick = false;
     },
     //   设置渐进色
@@ -162,46 +173,59 @@ export default {
   watch: {
     "visible.colorPick": function() {
       if (this.visible.colorPick) {
+        this.selectIndex = -1;
         this.$set(this.defaultTheme, "background", null);
         this.$set(this.defaultTheme, "color", null);
         this.$set(this.defaultTheme, "background", this.config.backgroundColor);
-        this.$set(this.defaultTheme, "color", this.config.color);
+        this.$set(
+          this.defaultTheme,
+          "color",
+          JSON.parse(JSON.stringify(this.config.color))
+        );
       }
     }
   }
 };
 </script>
- <style lang="less">
+<style lang="less">
 .theme-pick {
   .color-box-show {
     height: 28px;
     width: 200px;
   }
+
   .el-dialog {
     min-width: 400px;
   }
+
   .el-dialog__body {
     padding: 8px 20px;
   }
+
   .el-dialog__header {
     border-bottom: 1px solid #efefef;
     padding: 10px 20px 5px;
   }
+
   .el-dialog__title {
     font-size: 16px;
     color: #2d3132;
   }
+
   .el-dialog__headerbtn {
     top: 14px;
   }
+
   .dialog-color-pick {
     .curr-theme {
       height: 40px;
       margin-bottom: 10px;
+
       .curr-theme-header {
         height: 100%;
         padding: 8px 0;
         box-sizing: border-box;
+
         .curr-theme-header-label {
           float: left;
           height: 100%;
@@ -209,6 +233,7 @@ export default {
           line-height: 32px;
           text-align: left;
         }
+
         .color-box {
           float: left;
           height: 100%;
@@ -216,6 +241,7 @@ export default {
         }
       }
     }
+
     .curr-detail {
       height: auto;
       padding: 8px 0;
@@ -224,6 +250,7 @@ export default {
       border-top: 1px solid rgba(0, 0, 0, 0.1);
       border-bottom: 1px solid rgba(0, 0, 0, 0.1);
       width: 100%;
+
       .curr-detail-item {
         .curr-detail-item-label {
           float: left;
@@ -232,8 +259,10 @@ export default {
           line-height: 40px;
           text-align: left;
         }
+
         ul {
           margin-left: 80px;
+
           li {
             float: left;
             margin-right: 10px;
@@ -241,6 +270,7 @@ export default {
         }
       }
     }
+
     .other-theme {
       .curr-other-item-label {
         float: left;
@@ -249,17 +279,20 @@ export default {
         line-height: 40px;
         text-align: left;
       }
+
       .color-theme {
         float: left;
         margin-left: 80px;
-        margin-top: -40px;
+        margin-top: -50px;
         height: 40px;
         width: calc(100% - 80px);
+
         ul {
           height: 100%;
           width: 100%;
           padding: 8px 0;
           box-sizing: border-box;
+
           li {
             cursor: pointer;
             float: left;
@@ -267,18 +300,22 @@ export default {
             height: 100%;
             min-height: 32px;
             margin-bottom: 8px;
+
             .li-container {
               box-sizing: border-box;
               height: 100%;
+
               .popover-color-list {
                 height: 40px;
                 width: 100px;
+
                 li {
                   width: 28px;
                   height: 28px;
                   float: left;
                 }
               }
+
               .color-box {
                 float: left;
                 height: 100%;
@@ -286,6 +323,7 @@ export default {
               }
             }
           }
+
           li.active {
             border: 2px solid #66b1ff;
             box-sizing: border-box;
@@ -296,4 +334,3 @@ export default {
   }
 }
 </style>
-

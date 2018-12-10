@@ -80,6 +80,7 @@ export default {
             this.config.settings,
             this.config.data
           );
+          console.log(JSON.stringify(option))
           this.chart.clear(); //清空当前实例，会移除实例中所有的组件和图表
           this.chart.setOption(option);
         } else {
@@ -92,6 +93,7 @@ export default {
               this.config.settings,
               this.config.data
             );
+            
             this.chart.setOption(option);
           }
         }

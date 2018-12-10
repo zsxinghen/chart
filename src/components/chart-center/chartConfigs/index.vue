@@ -28,7 +28,7 @@
           <style-config :config="config.settings"></style-config>
         </el-collapse-item>
         <el-collapse-item title="组件配置" name="3">
-           <plugin-config :config="config.settings"></plugin-config>
+           <plugin-config :config="config"></plugin-config>
         </el-collapse-item>
       </el-collapse>
     </div>
