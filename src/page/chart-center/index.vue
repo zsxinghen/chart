@@ -12,7 +12,9 @@
     <!-- 中间  图表部分 -->
     <div class="main center">
       <div class="content-center">
-        <div class="content header"></div>
+        <div class="content header">
+          
+        </div>
         <div class="content chart">
           <chart id="my" :config="config"></chart>
         </div>
