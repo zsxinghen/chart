@@ -1,4 +1,7 @@
 /* 仪表盘 */
+// 1、加外部刻度   http://gallery.echartsjs.com/editor.html?c=xryu5EGhkm
+      
+// 2、内部加环     http://gallery.echartsjs.com/editor.html?c=xHJIu37FgQ
 export default {
   setOption(config, data) {
     let option = {
