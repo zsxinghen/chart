@@ -1,18 +1,23 @@
 <template>
   <div class="config-bar">
     <div class="config-li">
-      <div class="config-title">折线图类型</div>
+      <div class="config-title">柱状图类型</div>
       <div style="margin-left:16px;height:28px;line-height:28px">
-        <el-radio v-model="config.lineType" label="line">折线</el-radio>
-        <el-radio v-model="config.lineType" label="area">面积</el-radio>
+        <el-radio v-model="config.barType" label="xBar">柱状</el-radio>
+        <el-radio v-model="config.barType" label="yBar">条形</el-radio>
       </div>
     </div>
-    <div class="config-li" v-if="config.lineType=='line'">
-      <div class="config-title">折线种类</div>
-      <el-checkbox v-model="config.series.smooth">平滑</el-checkbox>
-      <el-checkbox v-model="config.series.isStep">阶梯线</el-checkbox>
-      <el-checkbox v-model="config.series.dashed">虚线</el-checkbox>
+    <div class="config-li">
+      <div class="config-title">柱型设置</div>
+      <div>
+        <el-checkbox v-model="config.series.isStack" style="margin-right:10px">堆叠</el-checkbox>
+      </div>
+      <div style="margin-left:14px;">
+        柱宽：<el-input-number v-model.lazy="config.series.barWidth" controls-position="right" :min='0' :max='100'
+          :controls="false" size="medium"></el-input-number>
+      </div>
     </div>
+
     <div class="config-li">
       <div class="config-title">标线设置</div>
       <el-checkbox v-model="config.series.markLine_average">平均</el-checkbox>
@@ -36,6 +41,11 @@
         <el-color-picker v-model="config.xAxis.lineColor" size="small" show-alpha :disabled="!config.xAxis.axisLine"></el-color-picker>
       </div>
       <el-checkbox v-model="config.xAxis.splitLine" style="margin-right:10px">分割线</el-checkbox>
+
+      <div style="margin-left:14px;" v-if="config.barType=='yBar'">
+        最小值：<el-input-number v-model.lazy="config.yAxis.min" controls-position="right" :controls="false" size="medium"></el-input-number>
+        分割数：<el-input-number v-model.lazy="config.yAxis.splitNumber" controls-position="right" :controls="false" size="medium"></el-input-number>
+      </div>
     </div>
     <!-- Y轴设置 -->
     <div class="config-li">
@@ -53,20 +63,22 @@
         </el-select>
         <el-color-picker v-model="config.yAxis.lineColor" size="small" show-alpha :disabled="!config.yAxis.axisLine"></el-color-picker>
       </div>
-      <el-checkbox v-model="config.yAxis.splitLine" style="margin-right:10px">分割线</el-checkbox>
-      <div style="margin-left:14px;">
-        最小值：<el-input-number v-model.lazy="config.yAxis.min" controls-position="right" :controls="false" size="medium"></el-input-number>
-        分割数：<el-input-number v-model.lazy="config.yAxis.splitNumber" controls-position="right" :controls="false" size="medium"></el-input-number>
+      <div>
+        <div style="margin-left:14px;" v-if="config.barType=='xBar'">
+          最小值：<el-input-number v-model.lazy="config.yAxis.min" controls-position="right" :controls="false" size="medium"></el-input-number>
+          分割数：<el-input-number v-model.lazy="config.yAxis.splitNumber" controls-position="right" :controls="false" size="medium"></el-input-number>
+        </div>
+      </div>
+      <div class="config-li">
+        <div class="config-title">偏移设置</div>
+        <div style="margin-left:14px;">
+          左偏移：<el-input-number v-model.lazy="config.grid.left" controls-position="right" :min='0' :max='100' :controls="false"
+            size="medium"></el-input-number>
+          右偏移：<el-input-number v-model.lazy="config.grid.right" controls-position="right" :min='0' :max='100' :controls="false"
+            size="medium"></el-input-number>
+        </div>
       </div>
     </div>
-    <div class="config-li">
-      <div class="config-title">偏移设置</div>
-      <div style="margin-left:14px;">
-        左偏移：<el-input-number v-model.lazy="config.grid.left" controls-position="right" min=0 max=100 :controls="false" size="medium"></el-input-number>
-        右偏移：<el-input-number v-model.lazy="config.grid.right" controls-position="right" min=0 max=100 :controls="false" size="medium"></el-input-number>
-      </div>
-    </div>
-  </div>
   </div>
   </div>
 </template>

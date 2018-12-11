@@ -62,8 +62,8 @@
     <div class="config-li">
       <div class="config-title">偏移设置</div>
       <div style="margin-left:14px;">
-        左偏移：<el-input-number v-model.lazy="config.grid.left" controls-position="right" min=0 max=100 :controls="false" size="medium"></el-input-number>
-        右偏移：<el-input-number v-model.lazy="config.grid.right" controls-position="right" min=0 max=100 :controls="false" size="medium"></el-input-number>
+        左偏移：<el-input-number v-model.lazy="config.grid.left" controls-position="right" :min="0" :max="100" :controls="false" size="medium"></el-input-number>
+        右偏移：<el-input-number v-model.lazy="config.grid.right" controls-position="right" :min="0" :max="100" :controls="false" size="medium"></el-input-number>
       </div>
     </div>
   </div>

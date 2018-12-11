@@ -5,12 +5,13 @@
   <div>
     <div class="config-title">标题样式</div>
     <el-checkbox v-model="config.title.isShow" style="margin-right:10px">显示标题</el-checkbox>
-    <el-tooltip class="item" effect="dark" content="位置" placement="top-start">
+    <el-tooltip class="item" effect="dark" content="位置" placement="top-start" v-if="config.type=='chart'">
       <el-button type="text" style="padding: 0;"><i class="iconfont icon-4-4-4" v-show="config.title.isShow"
           v-popover:titleLocation></i></el-button>
     </el-tooltip>
     <word :config="config" species="title"></word>
-    <el-popover ref="titleLocation" placement="right" title="标题位置" width="200" trigger="click" v-model="visible.titleLocation">
+    <el-popover ref="titleLocation" placement="right" title="标题位置" width="200" trigger="click" v-model="visible.titleLocation"
+      v-if="config.type=='chart'">
       <location :title="config.title" :legend="config.legend" type="title"></location>
       <div style="text-align: right; margin: 0">
         <el-button size="mini" type="primary" @click="popoverVisiable('titleLocation')">保存</el-button>
@@ -41,6 +42,9 @@
       </div>
     </div>
     <div v-if="config.chart=='gauge'">
+      <div class="config-title">标签样式</div>
+      <el-checkbox v-model="config.series.isShow" style="margin-right:10px">显示标签</el-checkbox>
+      <word :config="config" species="series"></word>
       <div class="config-title">背景设置</div>
       <div class="config-conent">
         背景色: <el-color-picker v-model="config.backgroundColor" size="small" show-alpha></el-color-picker>
@@ -62,39 +66,38 @@
   </div>
 </template>
 <script>
-  import Word from "./basic/Word.vue";
-  import Location from "./basic/Location.vue";
-  import ColorTheme from "./basic/ColorTheme.vue";
-  export default {
-    name: "BasicConfig",
-    components: {
-      Word,
-      Location,
-      ColorTheme
-    },
-    props: {
-      config: {
-        required: true,
-        type: Object,
-        default: () => {
-          return {};
-        }
-      }
-    },
-    data() {
-      return {
-        visible: {
-          titleLocation: false,
-          legendLocation: false,
-          colorPick: false
-        }
-      };
-    },
-    methods: {
-      popoverVisiable(visiable) {
-        this.visible[visiable] = false;
+import Word from "./basic/Word.vue";
+import Location from "./basic/Location.vue";
+import ColorTheme from "./basic/ColorTheme.vue";
+export default {
+  name: "BasicConfig",
+  components: {
+    Word,
+    Location,
+    ColorTheme
+  },
+  props: {
+    config: {
+      required: true,
+      type: Object,
+      default: () => {
+        return {};
       }
     }
-  };
-
+  },
+  data() {
+    return {
+      visible: {
+        titleLocation: false,
+        legendLocation: false,
+        colorPick: false
+      }
+    };
+  },
+  methods: {
+    popoverVisiable(visiable) {
+      this.visible[visiable] = false;
+    }
+  }
+};
 </script>

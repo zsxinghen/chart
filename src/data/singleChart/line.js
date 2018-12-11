@@ -1,5 +1,30 @@
 /* 折线图 */
-export const data_line = [];
+export const data_line = {
+  nameArr: ["女", "男", "平均"],
+  xArr: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+  valArr: [
+    [
+      { x: 1, value: 1, name: "女" },
+      { x: 2, value: 2, name: "女" },
+      { x: 3, value: 3, name: "女" },
+      { x: 4, value: 4, name: "女" },
+      { x: 5, value: 5, name: "女" },
+      { x: 6, value: 6, name: "女" },
+      { x: 1, value: 1, name: "女" },
+      { x: 1, value: 1, name: "女" }
+    ],
+    [
+      { x: 1, value: 1, name: "男" },
+      { x: 2, value: 2, name: "男" },
+      { x: 3, value: 3, name: "男" },
+      { x: 4, value: 4, name: "男" },
+      { x: 5, value: 5, name: "男" },
+      { x: 6, value: 6, name: "男" },
+      { x: 1, value: 1, name: "男" },
+      { x: 1, value: 2, name: "男" }
+    ]
+  ]
+};;
 var echarts = require("echarts");
 export const config_line = {
   type: "chart", //组件
@@ -26,7 +51,7 @@ export const config_line = {
     color: "#000000",
     fontFamliy: "Microsoft YaHei",
     fontSize: 12,
-    locationx: "center",
+    locationX: "center",
     locationY: "top"
   },
   legend: {
@@ -36,7 +61,7 @@ export const config_line = {
     fontFamliy: "Microsoft YaHei",
     fontSize: 12,
     orient: "horizontal",
-    locationx: "left",
+    locationX: "left",
     locationY: "bottom"
   },
   visualMap: {

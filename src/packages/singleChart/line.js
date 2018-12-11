@@ -283,6 +283,7 @@ export default {
           fontSize: config.title.fontSize,
         }
       },
+      large :true,
       legend: {
         show: config.legend.isShow,
         type: config.legend.type,
