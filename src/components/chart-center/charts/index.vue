@@ -25,7 +25,49 @@ export default {
     loading
   },
   mounted() {
-    this.config.data = [{value: 50, name: '完成率'}];
+    this.config.data = {
+      rowName: [
+        {
+          label: "six",
+          value: "six"
+        },
+        {
+          label: "月份",
+          value: "月份"
+        },
+        {
+          label: "值",
+          value: "值"
+        }
+      ],
+      rowValue: [
+        {
+          six: "男",
+          月份: "1",
+          值: "3.2"
+        },
+        {
+          six: "男",
+          月份: "2",
+          值: "3.2"
+        },
+        {
+          six: "女",
+          月份: "2",
+          值: "3.2"
+        },
+        {
+          six: "女",
+          月份: "3",
+          值: "3.2"
+        },
+        {
+          six: "女",
+          月份: "4",
+          值: "3.2"
+        }
+      ]
+    };
   }
 };
 </script>

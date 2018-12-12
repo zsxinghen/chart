@@ -26,6 +26,9 @@ import {
 import {
   config_card
 } from "./singleChart/card"
+import {
+  config_table
+} from "./singleChart/table"
 export default {
   config_pie,
   config_funnel,
@@ -35,5 +38,6 @@ export default {
   config_bar,
   config_scatter,
   config_gauge,
-  config_card
+  config_card,
+  config_table
 }
