@@ -60,7 +60,16 @@
     <!-- 地图 -->
     <div v-else-if="config.type=='map'"></div>
     <!-- 卡片 -->
-    <div v-else-if="config.type=='card'"></div>
+
+    <div v-else-if="config.type=='card'">
+      <div class="config-title">值样式</div>
+      <el-checkbox v-model="config.series.isShow" style="margin-right:10px">显示值</el-checkbox>
+      <word :config="config" species="series"></word>
+      <div class="config-title">背景设置</div>
+      <div class="config-conent">
+        背景色: <el-color-picker v-model="config.backgroundColor" size="small" show-alpha></el-color-picker>
+      </div>
+    </div>
     <!-- 表格 -->
     <div v-else-if="config.type=='table'"></div>
   </div>

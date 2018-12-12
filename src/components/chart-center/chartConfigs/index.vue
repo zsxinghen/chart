@@ -2,7 +2,7 @@
   <div class="config-common">
     <div class="config box">
       <div class="config-title">图表标题</div>
-      <el-input v-model="config.settings.title.text" placeholder="未命名图表名称"></el-input>
+      <el-input v-model="config.settings.title.text" :disabled="config.type=='card'" placeholder="未命名图表名称"></el-input>
     </div>
      <div class="config box">
       <div class="config-title">图表备注</div>

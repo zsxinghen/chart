@@ -1,20 +1,35 @@
 <template>
   <div class="config-card">
     <div class="config-li">
-        <!-- 1到2组数据 -->
-      <div class="config-title">布局</div>
-          <div style="padding-left:14px">
-        散点种类：<el-select v-model="config.series.symbol" placeholder="请选择" size="mini" :disabled="!config.xAxis.axisLine">
-          <el-option label="左右" value="circle"></el-option>
-          <el-option label="上下" value="rect"></el-option>
-          <el-option label="大小" value="roundRect"></el-option>
-        </el-select>
+      <!-- 1到2组数据 -->
+      <div class="config-title">指标卡配置</div>
+      <el-checkbox v-model.lazy="config.isLink">跳转</el-checkbox>
+      <el-input v-model.lazy="config.linkUrl" placeholder="请输入跳转地址 " style="width:100%"></el-input>
+      <div style="margin-left:16px;height:28px;line-height:28px">
+        <el-radio v-model="config.linkType" label="current">当前页面</el-radio>
+        <el-radio v-model="config.linkType" label="new">新开页面</el-radio>
       </div>
-    </div>
-      <div class="config-li">
-        <!-- 1到2组数据 -->
-      <div class="config-title">页面跳转</div>
-        新开页面或当期页面
     </div>
   </div>
 </template>
+<script>
+export default {
+  data() {
+    return {};
+  },
+  props: {
+    config: {
+      required: true,
+      type: Object,
+      default: () => null
+    }
+  }
+};
+</script>
+<style lang="less">
+.config-card {
+  .el-input__inner {
+    width: 100% !important;
+  }
+}
+</style>

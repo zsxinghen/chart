@@ -3,16 +3,24 @@
     <div class="config-li">
       <div class="config-title">仪表盘类型</div>
       <div style="padding-left:14px">
-        类型：<el-select v-model="config.gaugeType" placeholder="请选择" size="mini">
+        类&nbsp;&nbsp;&nbsp;型：<el-select v-model="config.gaugeType" placeholder="请选择" size="mini">
           <el-option v-for="item in gaugeType" :key="item.value" :label="item.name" :value="item.value">
           </el-option>
         </el-select>
+      </div>
+      <div style="padding-left:14px" v-if="config.gaugeType == 'type3'">
+        <div>刻度颜色：<el-color-picker v-model="config.axisTick.color" size="small" show-alpha></el-color-picker>
+        </div>
+      </div>
+      <div style="padding-left:14px" v-if="config.gaugeType == 'type4'">
+        <div>盘面底色：<el-color-picker v-model="config.series.gaugeColor" size="small" show-alpha></el-color-picker>
+        </div>
       </div>
     </div>
     <div class="config-li">
       <div class="config-title">仪表盘形状</div>
       <div style="padding-left:14px">
-        形状：<el-select v-model="config.gaugeShape" placeholder="请选择" size="mini">
+        形&nbsp;&nbsp;&nbsp;状：<el-select v-model="config.gaugeShape" placeholder="请选择" size="mini">
           <el-option v-for="item in gaugeShape" :key="item.value" :label="item.name" :value="item.value">
           </el-option>
         </el-select>
@@ -23,55 +31,55 @@
 
       <div style="padding-left:14px">
         <div>半&nbsp;&nbsp;&nbsp;径：<el-input-number v-model.lazy="config.series.radius" controls-position="right"
-            :controls="false" size="medium" style="width:160px"></el-input-number>
-        </div>
-      </div>
-      <div style="padding-left:14px">
-        <div>盘面底色：<el-color-picker v-model="config.series.axisTick.color" size="small" show-alpha></el-color-picker>
+            :controls="false" size="medium" style="width:160px" :min='40'></el-input-number>
         </div>
       </div>
     </div>
-      <div class="config-li">
-        <div class="config-title">刻度设置</div>
-        <el-checkbox v-model="config.series.pointer">显示</el-checkbox>
-        <div style="padding-left:14px">
-          <div>最小值：<el-input-number v-model.lazy="config.series.min" controls-position="right" style="width:160px"
-              :controls="false" size="medium"></el-input-number>
-          </div>
-          <div>最大值：<el-input-number v-model.lazy="config.series.max" controls-position="right" style="width:160px"
-              :controls="false" size="medium"></el-input-number>
-          </div>
+    <div class="config-li">
+      <div class="config-title">刻度设置</div>
+      <el-checkbox v-model="config.series.axisLabel.show">显示</el-checkbox>
+      <div style="padding-left:14px">
+        <div>最小值：<el-input-number v-model.lazy="config.series.min" controls-position="right" style="width:160px"
+            :controls="false" size="medium" :max='config.series.max'></el-input-number>
         </div>
-        <el-checkbox v-model="config.series.axisTick.isShow">刻度线</el-checkbox>
-        <el-color-picker v-model="config.series.axisTick.color" size="small" show-alpha></el-color-picker>
-        <div>
-          <el-checkbox v-model="config.series.axisTick.isShow">分隔线</el-checkbox>
+        <div>最大值：<el-input-number v-model.lazy="config.series.max" controls-position="right" style="width:160px"
+            :controls="false" size="medium" :min='config.series.min||1'></el-input-number>
         </div>
-        <div style="padding-left:14px">
-          <div>分隔数量：<el-input-number v-model.lazy="config.series.max" controls-position="right" style="width:150px"
-              :controls="false" size="medium"></el-input-number>
-          </div>
-        </div>
-      </div>
-  <div class="config-li">
-    <div class="config-title">指针设置</div>
-    <el-checkbox v-model="config.series.pointer">显示</el-checkbox>
-    <el-color-picker v-model="config.series.axisTick.color" size="small" show-alpha></el-color-picker>
-    <div style="padding-left:14px">
-      <div>宽度：<el-input-number v-model.lazy="config.series.min" controls-position="right" style="width:160px" :controls="false"
-          size="medium"></el-input-number>
-      </div>
-      <div>长度：<el-input-number v-model.lazy="config.series.max" controls-position="right" style="width:160px" :controls="false"
-          size="medium"></el-input-number>
+
       </div>
       <div>
+        <el-checkbox v-model="config.series.splitLine.show">分隔线</el-checkbox>
+      </div>
+      <div style="padding-left:14px">
+        <div>分段数量：<el-input-number v-model.lazy="config.series.splitNumber" controls-position="right" style="width:150px"
+            :controls="false" size="medium" :min="0" :max="100"></el-input-number>
+        </div>
+      </div>
+      <el-checkbox v-model="config.series.axisTick.isShow">刻度线</el-checkbox>
+      <div style="padding-left:14px">
+        <div>分隔数量：<el-input-number v-model.lazy="config.series.axisTick.splitNumber" controls-position="right" style="width:150px"
+            :controls="false" size="medium" :min="0" :max="100"></el-input-number>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="config-li">
-    <div class="config-title">提示名称</div>
-    <el-input v-model.lazy="config.series.name" placeholder="请输入名称"></el-input>
-  </div>
+    <div class="config-li">
+      <div class="config-title">指针设置</div>
+      <el-checkbox v-model="config.series.pointer.isShow">显示</el-checkbox>
+      <div style="padding-left:14px">
+        <div>宽&nbsp;&nbsp;&nbsp;度：<el-input-number v-model.lazy="config.series.pointer.width" controls-position="right" style="width:160px"
+            :controls="false" size="medium" :min='1'></el-input-number>
+        </div>
+        <div>长&nbsp;&nbsp;&nbsp;度：<el-input-number v-model.lazy="config.series.pointer.length" controls-position="right" style="width:160px"
+            :controls="false" size="medium" :min='1'></el-input-number>
+        </div>
+        <div>
+        </div>
+      </div>
+    </div>
+    <div class="config-li">
+      <div class="config-title">提示名称</div>
+      <el-input v-model.lazy="config.series.name" placeholder="请输入名称"></el-input>
+    </div>
   </div>
 </template>
 <script>
@@ -110,6 +118,10 @@
           {
             name: "类型3",
             value: "type3"
+          },
+          {
+            name: "类型4",
+            value: "type4"
           }
         ]
       };
