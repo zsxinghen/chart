@@ -1,6 +1,6 @@
 /* 表格 */
 export const data_table = {
-  rowName: [{
+  columns: [{
     label: "six",
     value: "six"
   }, {
@@ -10,7 +10,7 @@ export const data_table = {
     label: "值",
     value: "值"
   }, ],
-  rowValue: [{
+  tableData: [{
     six: '男',
     "月份": '1',
     "值": '3.2',
@@ -34,15 +34,30 @@ export const data_table = {
 };
 export const config_table = {
   chart: "table",
+  type: 'table',
   remark: "",
+  combineRow: true,
+  updateWay: "refresh", //刷新方式----重新渲染
   title: {
     isShow: true,
     text: null,
     color: "#000000",
     fontFamliy: "Microsoft YaHei",
     fontSize: "12px",
-    locationx: "left",
-    locationY: "top",
+    align: 'center'
+  },
+  tdColor: '#fff',
+  thColor: '#fff',
+  th: {
+    color: "#000000",
+    fontFamliy: "Microsoft YaHei",
+    fontSize: "12px",
+  },
+  td: {
+    color: "#000000",
+    fontFamliy: "Microsoft YaHei",
+    fontSize: "12px",
+    borderColor: '#dfe6ec'
   },
   color: "#000",
   isBorder: false,

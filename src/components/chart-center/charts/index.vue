@@ -26,45 +26,56 @@ export default {
   },
   mounted() {
     this.config.data = {
-      rowName: [
+      columns: [
         {
-          label: "six",
-          value: "six"
+          prop: "id",
+          label: "ID",
+          // width:'120px',
+          align: "center"
         },
         {
-          label: "月份",
-          value: "月份"
+          prop: "marketName",
+          label: "市场名称",
+          // width:'120px',
+          align: "center"
         },
         {
-          label: "值",
-          value: "值"
+          prop: "marketClassName",
+          label: "市场分类",
+          // width:'120px',
+          align: "center"
+        },
+        {
+          prop: "productClassName",
+          label: "产品大类",
+          // width:'120px',
+          align: "center"
         }
       ],
-      rowValue: [
+      tableData: [
         {
-          six: "男",
-          月份: "1",
-          值: "3.2"
+          id: 1,
+          marketName: "服装市场",
+          marketClassName: "男装",
+          productClassName: "西装"
         },
         {
-          six: "男",
-          月份: "2",
-          值: "3.2"
+          id: 2,
+          marketName: "服装市场",
+          marketClassName: "男装",
+          productClassName: "皮衣"
         },
         {
-          six: "女",
-          月份: "2",
-          值: "3.2"
+          id: 3,
+          marketName: "服装市场",
+          marketClassName: "女装",
+          productClassName: "皮衣"
         },
         {
-          six: "女",
-          月份: "3",
-          值: "3.2"
-        },
-        {
-          six: "女",
-          月份: "4",
-          值: "3.2"
+          id: 4,
+          marketName: "服装市场",
+          marketClassName: "女装",
+          productClassName: "群子"
         }
       ]
     };

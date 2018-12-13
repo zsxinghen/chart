@@ -55,17 +55,29 @@ export default {
         chart: "table",
         type: "table",
         settings: {
-          title:{}
-        }
-        // title: {},
-        // legend: {},
-        // series: {},
-        // dataZoom: {},
-        // visualMap: {
-        //   color: [""],
-        //   type: "continuous",
-        //   pieces: [{}]
+          chart: "table",
+          type: "table",
+          title: {}
+        },
+        // th: {
+        //   color: "#000000",
+        //   fontFamliy: "Microsoft YaHei",
+        //   fontSize: "12px"
+        // },
+        // td: {
+        //   color: "#000000",
+        //   fontFamliy: "Microsoft YaHei",
+        //   fontSize: "12px"
         // }
+        // // title: {},
+        // // legend: {},
+        // // series: {},
+        // // dataZoom: {},
+        // // visualMap: {
+        // //   color: [""],
+        // //   type: "continuous",
+        // //   pieces: [{}]
+        // // }
       }
     };
   },

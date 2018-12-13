@@ -80,6 +80,11 @@ export default {
     window.onresize = () => {
       this.setCollapseHeight();
     };
+     this.$set(
+        this.config,
+        "settings",
+        Object.assign({}, defaultConfig[`config_${this.config.chart}`])
+      );
   },
   updated() {},
   methods: {

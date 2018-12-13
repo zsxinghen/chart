@@ -59,54 +59,67 @@
     </div>
     <!-- 地图 -->
     <div v-else-if="config.type=='map'"></div>
-    <!-- 卡片 -->
 
+    <!-- 卡片 -->
     <div v-else-if="config.type=='card'">
       <div class="config-title">值样式</div>
       <el-checkbox v-model="config.series.isShow" style="margin-right:10px">显示值</el-checkbox>
-      <word :config="config" species="series"></word>
+      <word  :config="config" species="series"></word>
       <div class="config-title">背景设置</div>
       <div class="config-conent">
         背景色: <el-color-picker v-model="config.backgroundColor" size="small" show-alpha></el-color-picker>
       </div>
     </div>
     <!-- 表格 -->
-    <div v-else-if="config.type=='table'"></div>
+    <div v-else-if="config.type=='table'">
+        <div style="margin-left:16px;height:28px;line-height:28px">
+        <el-radio v-model="config.title.align" label="left">靠左</el-radio>
+        <el-radio v-model="config.title.align" label="center">居中</el-radio>
+        <el-radio v-model="config.title.align" label="right">靠右</el-radio>
+      </div>
+      <div class="config-title">背景设置</div>
+      <div style="margin-left:14px">
+        <div>
+          背景: <el-color-picker v-model="config.backgroundColor" size="small" show-alpha></el-color-picker>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <script>
-import Word from "./basic/Word.vue";
-import Location from "./basic/Location.vue";
-import ColorTheme from "./basic/ColorTheme.vue";
-export default {
-  name: "BasicConfig",
-  components: {
-    Word,
-    Location,
-    ColorTheme
-  },
-  props: {
-    config: {
-      required: true,
-      type: Object,
-      default: () => {
-        return {};
+  import Word from "./basic/Word.vue";
+  import Location from "./basic/Location.vue";
+  import ColorTheme from "./basic/ColorTheme.vue";
+  export default {
+    name: "BasicConfig",
+    components: {
+      Word,
+      Location,
+      ColorTheme
+    },
+    props: {
+      config: {
+        required: true,
+        type: Object,
+        default: () => {
+          return {};
+        }
+      }
+    },
+    data() {
+      return {
+        visible: {
+          titleLocation: false,
+          legendLocation: false,
+          colorPick: false
+        }
+      };
+    },
+    methods: {
+      popoverVisiable(visiable) {
+        this.visible[visiable] = false;
       }
     }
-  },
-  data() {
-    return {
-      visible: {
-        titleLocation: false,
-        legendLocation: false,
-        colorPick: false
-      }
-    };
-  },
-  methods: {
-    popoverVisiable(visiable) {
-      this.visible[visiable] = false;
-    }
-  }
-};
+  };
+
 </script>
