@@ -75,16 +75,18 @@ export default {
       }
     }
   },
+  beforeMount() {
+    this.$set(
+      this.config,
+      "settings",
+      Object.assign({}, defaultConfig[`config_${this.config.chart}`])
+    );
+  },
   mounted() {
     this.setCollapseHeight();
     window.onresize = () => {
       this.setCollapseHeight();
     };
-     this.$set(
-        this.config,
-        "settings",
-        Object.assign({}, defaultConfig[`config_${this.config.chart}`])
-      );
   },
   updated() {},
   methods: {
@@ -97,16 +99,16 @@ export default {
       });
     },
     setType(item) {
-      this.$set(
-        this.config,
-        "settings",
-        Object.assign({}, defaultConfig[`config_${item.chart}`])
-      );
       this.$set(this.config, "type", item.type);
       this.$set(this.config, "chart", item.chart);
       this.$set(this.config, "isAxis", item.isAxis);
       this.$set(this.config, "isVisualMap", item.isVisualMap);
       this.chartType = item.chart;
+      this.$set(
+        this.config,
+        "settings",
+        Object.assign({}, defaultConfig[`config_${this.config.chart}`])
+      );
     }
   }
 };

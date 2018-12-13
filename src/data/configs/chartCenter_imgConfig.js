@@ -29,7 +29,7 @@ export const types = [{
     chart: 'sunburst', // 旭日图
     name: '旭日图',
     isAxis: false,
-    isVisualMap: false,
+    isVisualMap: true,
     icon: "icon-xuritu",
   },
   {

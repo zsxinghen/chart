@@ -1,22 +1,22 @@
 /* 旭日图 */
-export const data_sunburst = [{   //tree
+export const data_sunburst = [{ //tree
   name: 'Flora',
-  value: 1,
+  value: 30,
   children: [{
-    name: 'Flora',
-    value: 1,
+    name: 'a',
+    value: 10,
     children: []
   }, {
-    name: 'Flora',
-    value: 1,
+    name: 'b',
+    value: 20,
     children: []
   }]
 }, {
-  name: 'Flora',
-  value: 1,
+  name: 'd',
+  value: 10,
   children: [{
-    name: 'Flora',
-    value: 1,
+    name: 'c',
+    value: 5,
     children: []
   }]
 }];
@@ -25,7 +25,7 @@ export const config_sunburst = {
   chart: "sunburst", //图表类型
   remark: null, //备注
   click: false, //点击事件
-  pieType: "type1", //饼状、环状、南丁格尔图,其他
+  updateWay: "refresh", //刷新方式----重新渲染
   // 颜色
   color: ['#c23531', '#2f4554', '#61a0a8', '#d48265', '#91c7ae', '#749f83', '#ca8622', '#bda29a', '#6e7074', '#546570', '#c4ccd3'],
   backgroundColor: "#ffffff",
@@ -35,23 +35,48 @@ export const config_sunburst = {
     color: "#000000",
     fontFamliy: "Microsoft YaHei",
     fontSize: 12,
-    locationx: "center",
+    locationX: "center",
     locationY: "top"
   },
+  borderColor:"#fff",
   grid: {
     left: 10,
+    right: 10,
+  },
+  legend: {
+    isShow: false,
+    data: [],
+    color: "#000000",
+    fontFamliy: "Microsoft YaHei",
+    fontSize: 12,
+    orient: "horizontal",
+    locationX: "left",
+    locationY: "bottom"
   },
   visualMap: {
-    type: 'continuous',
+    status: 'off',
     min: 0,
-    max: 10,
-    inRange: {
-      color: ['#2D5F73', '#538EA6', '#F2D1B3', '#F2B8A2', '#F28C8C']
-    }
+    max: 100,
+    dimension: 1,
+    isShow: true,
+    type: 'continuous',
+    orient: 'vertical',
+    right: 10,
+    top: 'center',
+    text: ['HIGH', 'LOW'],
+    calculable: true,
+    color: ['#f2c31a', '#24b7f2'],
+    pieces: [{}],
   },
   series: {
-    radius: ['0', '80%'],
+    name: '',
+    isShow: true,
+    color: "#000000",
+    fontFamliy: "Microsoft YaHei",
+    fontSize: 12,
     highlightPolicy: 'ancestor',
     levels: [],
+    inRange:0,
+    outRange:80,
   }
 };

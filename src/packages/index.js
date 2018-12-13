@@ -8,6 +8,8 @@ import {default as scatter} from "./singleChart/scatter"
 import {default as gauge} from "./singleChart/gauge"
 import {default as card} from "./singleChart/card"
 import {default as table} from "./singleChart/table"
+import {default as graph} from "./singleChart/graph"
+import {default as sunburst} from "./singleChart/sunburst"
 export default{
     pie,
     funnel,
@@ -19,4 +21,6 @@ export default{
     scatter,
     gauge,
     card,
+    graph,
+    sunburst
 }

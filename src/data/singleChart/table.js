@@ -2,14 +2,14 @@
 export const data_table = {
   columns: [{
     label: "six",
-    value: "six"
+    prop: "six"
   }, {
     label: "月份",
-    value: "月份"
+    prop: "月份"
   }, {
     label: "值",
-    value: "值"
-  }, ],
+    prop: "值"
+  }],
   tableData: [{
     six: '男',
     "月份": '1',

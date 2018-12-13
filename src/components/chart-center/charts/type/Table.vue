@@ -42,6 +42,9 @@ export default {
       this.$set(this, "rowspanConfig", []);
     }
     this.colspanConfig = [];
+    this.config.data.columns.forEach(val => {
+      val.align = "center";
+    });
   },
   methods: {
     // 更改样式

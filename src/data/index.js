@@ -29,6 +29,12 @@ import {
 import {
   config_table
 } from "./singleChart/table"
+import {
+  config_sunburst
+} from "./singleChart/sunburst"
+import {
+  config_graph
+} from "./singleChart/graph"
 export default {
   config_pie,
   config_funnel,
@@ -39,5 +45,7 @@ export default {
   config_scatter,
   config_gauge,
   config_card,
-  config_table
+  config_table,
+  config_sunburst,
+  config_graph
 }

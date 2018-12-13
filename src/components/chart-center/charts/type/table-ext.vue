@@ -61,8 +61,34 @@ export default {
   },
   data() {
     return {
-      // 				rowspanConfig: ['marketName', 'marketClassName'],
-      // 				colspanConfig: ['col1-col2'],
+      // rowspanConfig: ["marketName", "marketClassName"],
+      // colspanConfig: ["col1-col2"],
+      // columns: [
+      //   {
+      //     prop: "id",
+      //     label: "ID",
+      //     // width:'120px',
+      //     align: "center"
+      //   },
+      //   {
+      //     prop: "marketName",
+      //     label: "市场名称",
+      //     // width:'120px',
+      //     align: "center"
+      //   },
+      //   {
+      //     prop: "marketClassName",
+      //     label: "市场分类",
+      //     // width:'120px',
+      //     align: "center"
+      //   },
+      //   {
+      //     prop: "productClassName",
+      //     label: "产品大类",
+      //     // width:'120px',
+      //     align: "center"
+      //   }
+      // ]
       // 				tableData: [{
       // 						id: 1,
       // 						marketName: '服装市场',

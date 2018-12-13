@@ -25,60 +25,27 @@ export default {
     loading
   },
   mounted() {
-    this.config.data = {
-      columns: [
-        {
-          prop: "id",
-          label: "ID",
-          // width:'120px',
-          align: "center"
-        },
-        {
-          prop: "marketName",
-          label: "市场名称",
-          // width:'120px',
-          align: "center"
-        },
-        {
-          prop: "marketClassName",
-          label: "市场分类",
-          // width:'120px',
-          align: "center"
-        },
-        {
-          prop: "productClassName",
-          label: "产品大类",
-          // width:'120px',
-          align: "center"
-        }
-      ],
-      tableData: [
-        {
-          id: 1,
-          marketName: "服装市场",
-          marketClassName: "男装",
-          productClassName: "西装"
-        },
-        {
-          id: 2,
-          marketName: "服装市场",
-          marketClassName: "男装",
-          productClassName: "皮衣"
-        },
-        {
-          id: 3,
-          marketName: "服装市场",
-          marketClassName: "女装",
-          productClassName: "皮衣"
-        },
-        {
-          id: 4,
-          marketName: "服装市场",
-          marketClassName: "女装",
-          productClassName: "群子"
-        }
-      ]
-    };
+    this.config.data = [{ //tree
+  name: 'Flora',
+  value: 30,
+  children: [{
+    name: 'a',
+    value: 10,
+    children: []
+  }, {
+    name: 'b',
+    value: 20,
+    children: []
+  }]
+}, {
+  name: 'd',
+  value: 10,
+  children: [{
+    name: 'c',
+    value: 5,
+    children: []
+  }]
+}];
   }
 };
 </script>

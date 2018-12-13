@@ -19,6 +19,7 @@
     </el-popover>
     <!-- 图表 -->
     <div v-if="config.type=='chart'&&config.chart!='wordcloud'&&config.chart!='gauge'">
+      <div v-if="config.chart!='sunburst'">
       <div class="config-title">图例样式</div>
       <el-checkbox v-model="config.legend.isShow" style="margin-right:10px">显示图例</el-checkbox>
       <el-tooltip class="item" effect="dark" content="位置" placement="top-start">
@@ -32,6 +33,7 @@
           <el-button size="mini" type="primary" @click="popoverVisiable('legendLocation')">保存</el-button>
         </div>
       </el-popover>
+      </div>
       <div class="config-title">标签样式</div>
       <el-checkbox v-model="config.series.isShow" style="margin-right:10px">显示标签</el-checkbox>
       <word :config="config" species="series"></word>
@@ -87,39 +89,38 @@
   </div>
 </template>
 <script>
-  import Word from "./basic/Word.vue";
-  import Location from "./basic/Location.vue";
-  import ColorTheme from "./basic/ColorTheme.vue";
-  export default {
-    name: "BasicConfig",
-    components: {
-      Word,
-      Location,
-      ColorTheme
-    },
-    props: {
-      config: {
-        required: true,
-        type: Object,
-        default: () => {
-          return {};
-        }
-      }
-    },
-    data() {
-      return {
-        visible: {
-          titleLocation: false,
-          legendLocation: false,
-          colorPick: false
-        }
-      };
-    },
-    methods: {
-      popoverVisiable(visiable) {
-        this.visible[visiable] = false;
+import Word from "./basic/Word.vue";
+import Location from "./basic/Location.vue";
+import ColorTheme from "./basic/ColorTheme.vue";
+export default {
+  name: "BasicConfig",
+  components: {
+    Word,
+    Location,
+    ColorTheme
+  },
+  props: {
+    config: {
+      required: true,
+      type: Object,
+      default: () => {
+        return {};
       }
     }
-  };
-
+  },
+  data() {
+    return {
+      visible: {
+        titleLocation: false,
+        legendLocation: false,
+        colorPick: false
+      }
+    };
+  },
+  methods: {
+    popoverVisiable(visiable) {
+      this.visible[visiable] = false;
+    }
+  }
+};
 </script>
