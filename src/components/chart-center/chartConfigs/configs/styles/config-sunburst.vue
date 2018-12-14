@@ -1,7 +1,7 @@
 <template>
   <div class="config-pie">
     <div class="config-li">
-      <div class="config-title">饼图半径</div>
+      <div class="config-title">半径</div>
       <div style="margin-left:14px;">
         <div v-show="config.pieType!= 'type1'">内径：<el-input-number v-model.lazy="config.series.inRange"
             controls-position="right" :controls="false" size="medium" style="width:180px;" :min='0' :max="config.series.outRange"></el-input-number>%</div>
@@ -18,6 +18,7 @@
           颜色: <el-color-picker v-model="config.borderColor" size="small" show-alpha></el-color-picker>
       </div>
     </div>
+ 
     <div class="config-li">
       <div class="config-title">提示名称</div>
       <el-input v-model.lazy="config.series.name" placeholder="请输入名称"></el-input>
@@ -25,27 +26,25 @@
   </div>
 </template>
 <script>
-  export default {
-    data() {
-      return {};
-    },
-    props: {
-      config: {
-        required: true,
-        type: Object,
-        default: () => null
-      }
-    },
-    mounted() {},
-    methods: {}
-  };
-
+export default {
+  data() {
+    return {};
+  },
+  props: {
+    config: {
+      required: true,
+      type: Object,
+      default: () => null
+    }
+  },
+  mounted() {},
+  methods: {}
+};
 </script>
 <style lang="less">
-  .config-pie {
-    .el-input__inner {
-      width: 100% !important;
-    }
+.config-pie {
+  .el-input__inner {
+    width: 100% !important;
   }
-
+}
 </style>

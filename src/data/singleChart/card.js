@@ -1,5 +1,8 @@
 /* 卡片 */
-export const data_card = [];
+export const data_card = [{
+  value: 335,
+  name: '直接访问'
+}];
 export const config_card = {
   chart: "card",
   type: "card",

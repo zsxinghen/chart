@@ -24,29 +24,7 @@ export default {
     myChart,
     loading
   },
-  mounted() {
-    this.config.data = [{ //tree
-  name: 'Flora',
-  value: 30,
-  children: [{
-    name: 'a',
-    value: 10,
-    children: []
-  }, {
-    name: 'b',
-    value: 20,
-    children: []
-  }]
-}, {
-  name: 'd',
-  value: 10,
-  children: [{
-    name: 'c',
-    value: 5,
-    children: []
-  }]
-}];
-  }
+  mounted() {}
 };
 </script>
 <style lang="less">

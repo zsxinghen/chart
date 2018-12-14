@@ -1,5 +1,14 @@
 /* 雷达图 */
-export const data_radar = [];
+export const data_radar = [
+  {
+    value: [28, 36, 12, 68, 232, 336, 458, 569, 165, 146, 87, 35],
+    name: "施工数量"
+  },
+  {
+    value: [289, 356, 12, 16, 23, 36, 58, 69, 126, 246, 355, 466],
+    name: "竣工数量"
+  }
+];
 export const config_radar = {
   type: "chart", //组件
   chart: "radar", //图表类型
@@ -15,7 +24,7 @@ export const config_radar = {
     locationY: "top"
   },
   grid: {
-    left: 10,
+    left: 10
   },
   legend: {
     isShow: true,
@@ -28,36 +37,59 @@ export const config_radar = {
     locationY: "bottom"
   },
   // 颜色
-  color: ['#c23531', '#2f4554', '#61a0a8', '#d48265', '#91c7ae', '#749f83', '#ca8622', '#bda29a', '#6e7074', '#546570', '#c4ccd3'],
+  color: [
+    "#c23531",
+    "#2f4554",
+    "#61a0a8",
+    "#d48265",
+    "#91c7ae",
+    "#749f83",
+    "#ca8622",
+    "#bda29a",
+    "#6e7074",
+    "#546570",
+    "#c4ccd3"
+  ],
   backgroundColor: "#ffffff",
   visualMap: {
     show: false,
-    top: 'middle',
+    top: "middle",
     right: 10,
-    color: ['red', 'yellow'],
+    color: ["red", "yellow"],
     calculable: true
+  },
+  visualMap: {
+    status: 'off',
+    min: 0,
+    max: 100,
+    dimension: 1,
+    isShow: true,
+    type: 'continuous',
+    orient: 'vertical',
+    right: 10,
+    top: 'center',
+    text: ['HIGH', 'LOW'],
+    calculable: true,
+    color: ['#f2c31a', '#24b7f2'],
+    pieces: [{}],
+  },
+  radar:{
+    lineType:'solid',
+    color:'rgba(208, 196, 196, 1)',
+    indicator:[{},{},{}],
   },
   series: {
     splitNumber: 5,
     indicator: [],
-    shape: 'circle',
-    // splitArea: {
-    //   color: new echarts.graphic.RadialGradient(0.5, 0.5, 1, [{
-    //       color: '#B8D3E4',
-    //       offset: 0
-    //     },
-    //     {
-    //       color: '#72ACD1',
-    //       offset: 1
-    //     }
-    //   ])
-    // },
+    opacity:50,
+    isAreaStyle:true,
+    radius:60,
+    shape: "circle",
     lineStyle: {
-      type: 'dashed'
+      type: "dashed"
     },
     areaStyle: {
-      color: 'rgba(255, 255, 255, 0.5)',
-    },
-
+      color: "rgba(255, 255, 255, 0.5)"
+    }
   }
 };

@@ -1,55 +1,51 @@
 // 数据初始化部分
 import {
-  config_pie
+  data_pie
 } from "./singleChart/pie"
 import {
-  config_funnel
+  data_funnel
 } from "./singleChart/funnel"
 import {
-  config_wordcloud
+  data_wordcloud
 } from "./singleChart/wordcloud"
 import {
-  config_radar
+  data_radar
 } from "./singleChart/radar"
 import {
-  config_line
+  data_line
 } from "./singleChart/line"
 import {
-  config_bar
+  data_bar
 } from "./singleChart/bar"
 import {
-  config_scatter
+  data_scatter
 } from "./singleChart/scatter"
 import {
-  config_gauge
+  data_gauge
 } from "./singleChart/gauge"
 import {
-  config_card
+  data_card
 } from "./singleChart/card"
 import {
-  config_table
+  data_table
 } from "./singleChart/table"
 import {
-  config_sunburst
+  data_sunburst
 } from "./singleChart/sunburst"
 import {
-  config_graph
+  data_graph
 } from "./singleChart/graph"
-import {
-  config_map
-} from "./map/map"
 export default {
-  config_pie,
-  config_funnel,
-  config_wordcloud,
-  config_radar,
-  config_line,
-  config_bar,
-  config_scatter,
-  config_gauge,
-  config_card,
-  config_table,
-  config_sunburst,
-  config_graph,
-  config_map
+  data_pie,
+  data_funnel,
+  data_wordcloud,
+  data_radar,
+  data_line,
+  data_bar,
+  data_scatter,
+  data_gauge,
+  data_card,
+  data_table,
+  data_sunburst,
+  data_graph
 }

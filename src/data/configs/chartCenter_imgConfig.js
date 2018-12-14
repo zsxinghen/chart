@@ -53,17 +53,17 @@ export const types = [{
     chart: 'radar', // 雷达图
     name: '雷达图',
     isAxis: false,
-    isVisualMap: false,
+    isVisualMap: true,
     icon: "icon-leidatu",
   },
-  {
-    type: "chart",
-    chart: 'graph', // 关系图
-    name: '关系图',
-    isAxis: false,
-    isVisualMap: true,
-    icon: "icon-guanxitu",
-  },
+  // {
+  //   type: "chart",
+  //   chart: 'graph', // 关系图
+  //   name: '关系图',
+  //   isAxis: false,
+  //   isVisualMap: true,
+  //   icon: "icon-guanxitu",
+  // },
   {
     type: "chart",
     chart: 'bar', // 柱状图
@@ -100,10 +100,10 @@ export const types = [{
   //   name: '水球图',
   //   icon: "icon-fsux_tubiao_shuiqiutu",
   // },
-  {
-    type: "map",
-    chart: 'map', // 地图
-    name: '地图',
-    icon: "icon-map_02",
-  }
+  // {
+  //   type: "map",
+  //   chart: 'map', // 地图
+  //   name: '地图',
+  //   icon: "icon-map_02",
+  // }
 ]

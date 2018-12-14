@@ -1,3 +1,5 @@
 <template>
-    <div></div>
+    <div class="config-map">
+        
+    </div>
 </template>

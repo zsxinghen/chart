@@ -3,7 +3,8 @@
     <div :class="[{
          label:config.settings.isLink==false,
          link:config.settings.isLink==true,
-    }]" @click="go">
+    }]"
+      @click="go">
       <p v-show="config.settings.title.isShow" :style="`font-size:${config.settings.title.fontSize}px;font-family:${config.settings.title.fontFamliy};
       color:${config.settings.title.color}`">{{config.settings.title.text}}</p>
       <p v-show="config.settings.series.isShow" :style="`font-size:${config.settings.series.fontSize}px;font-family:${config.settings.series.fontFamliy};
@@ -31,6 +32,9 @@ export default {
       }
     }
   },
+  mounted() {
+    this.setData();
+  },
   methods: {
     go() {
       if (
@@ -43,6 +47,23 @@ export default {
         this.config.settings.linkType == "new"
       ) {
         window.open(this.config.settings.linkUrl);
+      }
+    },
+    setData() {
+      if (this.config.data instanceof Array) {
+        this.config.settings.title.text = this.config.data[0].name;
+        this.config.settings.series.data = this.config.data[0].value;
+      } else {
+        this.config.settings.title.text = this.config.data.name;
+        this.config.settings.series.data = this.config.data.value;
+      }
+    }
+  },
+  watch: {
+    "config.data": {
+      deep: true,
+      handler() {
+        this.setData();
       }
     }
   }
@@ -58,12 +79,15 @@ export default {
   align-items: center;
   padding: 10px;
   box-sizing: border-box;
+
   .link {
     cursor: pointer;
   }
+
   > div {
     position: absolute;
     max-width: 60%;
+
     > p {
       text-align: center;
       white-space: nowrap;

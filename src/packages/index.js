@@ -10,6 +10,7 @@ import {default as card} from "./singleChart/card"
 import {default as table} from "./singleChart/table"
 import {default as graph} from "./singleChart/graph"
 import {default as sunburst} from "./singleChart/sunburst"
+import {default as map} from "./map/map"
 export default{
     pie,
     funnel,
@@ -22,5 +23,6 @@ export default{
     gauge,
     card,
     graph,
-    sunburst
+    sunburst,
+    map
 }

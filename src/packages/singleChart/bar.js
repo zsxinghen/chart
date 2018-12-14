@@ -29,7 +29,7 @@ export default {
           max: config.visualMap.max,
           type: 'continuous',
           calculable: true,
-          inverse:true,
+          // inverse:true,
           show: config.visualMap.isShow,
           color: config.visualMap.color,
           bottom: 20,

@@ -1,5 +1,8 @@
 /* 仪表盘 */
-export const data_gauge = [];
+export const data_gauge = [{
+  value: 335,
+  name: '直接访问'
+}];
 export const config_gauge = {
   type: "chart", //组件
   chart: "gauge", //图表类型

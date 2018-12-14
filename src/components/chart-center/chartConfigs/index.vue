@@ -46,6 +46,7 @@ import BasicConfig from "./configs/BasicConfig.vue";
 import StyleConfig from "./configs/StyleConfig.vue";
 import PluginConfig from "./configs/PluginConfig.vue";
 import { default as defaultConfig } from "../../../data/index";
+import { default as data } from "../../../data/indexData.js";
 export default {
   name: "configCommon",
   data() {
@@ -108,6 +109,12 @@ export default {
         this.config,
         "settings",
         Object.assign({}, defaultConfig[`config_${this.config.chart}`])
+      );
+      console.log(data)
+      this.$set(
+        this.config,
+        "data",
+        data[`data_${this.config.settings.chart}`]
       );
     }
   }

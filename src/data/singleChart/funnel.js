@@ -1,25 +1,28 @@
 /* 漏斗图 */
-export const data_funnel = [{
-    value: 60,
-    name: '访问'
-  },
-  {
-    value: 40,
-    name: '咨询'
-  },
-  {
-    value: 20,
-    name: '订单'
-  },
-  {
-    value: 80,
-    name: '点击'
-  },
-  {
-    value: 100,
-    name: '展现'
-  }
-];
+export const data_funnel = {
+  nameArr: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎'],
+  valArr: [{
+      value: 335,
+      name: '直接访问'
+    },
+    {
+      value: 310,
+      name: '邮件营销'
+    },
+    {
+      value: 234,
+      name: '联盟广告'
+    },
+    {
+      value: 135,
+      name: '视频广告'
+    },
+    {
+      value: 1548,
+      name: '搜索引擎'
+    }
+  ]
+};
 export const config_funnel = {
   type: "chart", //组件
   chart: "funnel", //图表类型
@@ -56,7 +59,7 @@ export const config_funnel = {
     minSize: 0,
     maxSize: 80,
     funnelAlign: 'center',
-    name:"",
-    position:""
+    name: "",
+    position: ""
   }
 };
