@@ -6,23 +6,21 @@
     </component>
 </template>
 <script>
-import styleTable from "./styles/config-table";
-import styleCard from "./styles/config-card";
-import stylePie from "./styles/config-pie";
-import styleSunburst from "./styles/config-sunburst";
-import styleGauge from "./styles/config-gauge";
-import styleFunnel from "./styles/config-funnel";
-import styleRadar from "./styles/config-radar";
-import styleGraph from "./styles/config-graph";
-import styleBar from "./styles/config-bar";
-import styleLine from "./styles/config-line";
-import styleScatter from "./styles/config-scatter";
-import styleWordcloud from "./styles/config-wordcloud";
-import styleMap from "./styles/config-map";
+import styleTable from "../../../../packages/singleChart/table/component.vue";
+import styleCard from "../../../../packages/singleChart/card/component.vue";
+import stylePie from "../../../../packages/singleChart/pie/component.vue";
+import styleSunburst from "../../../../packages/singleChart/sunburst/component.vue";
+import styleGauge from "../../../../packages/singleChart/gauge/component.vue";
+import styleFunnel from "../../../../packages/singleChart/funnel/component.vue";
+import styleRadar from "../../../../packages/singleChart/radar/component.vue";
+import styleBar from "../../../../packages/singleChart/bar/component.vue";
+import styleLine from "../../../../packages/singleChart/line/component.vue";
+import styleScatter from "../../../../packages/singleChart/scatter/component.vue";
+import styleWordcloud from "../../../../packages/singleChart/wordcloud/component.vue";
+
 export default {
   data() {
-    return {
-    };
+    return {};
   },
   props: {
     config: {
@@ -40,12 +38,10 @@ export default {
     styleGauge,
     styleFunnel,
     styleRadar,
-    styleGraph,
     styleBar,
     styleLine,
     styleScatter,
-    styleWordcloud,
-    styleMap
+    styleWordcloud
   }
 };
 </script>

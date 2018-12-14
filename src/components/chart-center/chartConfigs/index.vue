@@ -45,8 +45,8 @@
 import BasicConfig from "./configs/BasicConfig.vue";
 import StyleConfig from "./configs/StyleConfig.vue";
 import PluginConfig from "./configs/PluginConfig.vue";
-import { default as defaultConfig } from "../../../data/index";
-import { default as data } from "../../../data/indexData.js";
+import { default as defaultConfig } from "../../../packages/indexConfig.js";
+import { default as data } from "../../../packages/indexData.js";
 export default {
   name: "configCommon",
   data() {

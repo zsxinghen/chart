@@ -42,7 +42,7 @@
 <script>
 import chart from "../../components/chart-center/charts/index.vue";
 import configs from "../../components/chart-center/chartConfigs/index.vue";
-import { types } from "../../data/configs/chartCenter_imgConfig.js";
+import { types } from "../../../static/chartType.js";
 export default {
   name: "chartConfigPage",
   data() {
